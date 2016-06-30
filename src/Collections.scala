@@ -10,6 +10,12 @@ object Collections {
     
     // Mapping operations
     mappingOperations()
+    
+    // Reduction operations
+    reductionOperations()
+    
+    // Opérations de conversion
+    convertOperations()
   }
   
   /**
@@ -102,6 +108,101 @@ object Collections {
     
     // Transforme chaque élément à partir d'une fonction donnée
     println("3°)\t" + (List("milk", "tea") map (_.toUpperCase)))
+  }
+  
+  /**
+   * 
+   */
+  def reductionOperations(): Unit = {
+    // Opérations mathématiques
+    mathReductionOperations()
+    
+    // Opérations booléennes
+    booleanReductionOperations()
+  }
+  
+  /**
+   * Math reduction operations : 
+   * 	1°) max
+   * 	2°) min
+   * 	3°) product
+   * 	4°) sum
+   */
+  def mathReductionOperations(): Unit = {
+    println("Math reduction operations : ")
+    println("----------------------------")
+    
+    // Retourne le maximum de la liste
+    println("1°)\t" + (List(41, 59, 26).max))
+    
+    // Retourne le minimum de la liste
+    println("2°)\t" + (List(10.9, 32.5, 4.23, 5.67).min))
+    
+    // Calcule le produit des nombres de cette liste
+    println("3°)\t" + (List(5, 6, 7).product))
+    
+    // Calcule la somme des nombres de cette liste
+    println("4°)\t" + (List(11.3, 23.5, 7.2).sum))
+  }
+  
+  /**
+   * Boolean reduction operations : 
+   * 	1°) contains
+   * 	2°) endsWith
+   * 	3°) exists
+   * 	4°) forall
+   * 	5°) startsWith
+   */
+  def booleanReductionOperations(): Unit = {
+    println("Boolean reduction operations : ")
+    println("-------------------------------")
+    
+    // Vérifie que la liste contient 29
+    println("1°)\t" + (List(34, 29, 18) contains 29))
+    
+    // Vérifie que la liste se termine bien par les chiffres 4 et 3
+    println("2°)\t" + (List(0, 4, 3) endsWith List(4, 3)))
+    
+    // Vérifie que la fonction booléenne est vérifiée pour au moins 1 élément de la liste
+    println("3°)\t" + (List(24, 17, 32) exists (_ < 18)))
+    
+    // Vérifie que la fonction booléenne est vérifiée pour tous les éléments de la liste
+    println("4°)\t" + (List(24, 17, 32) forall (_ < 18)))
+    
+    // Même principe que la méthode endsWith
+    println("5°)\t" + (List(0, 4, 3) startsWith List(0)))
+  }
+  
+  /**
+   * Opérations de conversion : 
+   * 	1°) mkString
+   * 	2°) toBuffer
+   * 	3°) toList
+   * 	4°) toMap
+   * 	5°) toSet
+   * 	6°) toString
+   */
+  def convertOperations(): Unit = {
+    println("Opérations de conversions : ")
+    println("----------------------------")
+    
+    // Créer une chaîne délimité par le paramètre
+    println("1°)\t" + (List(24, 99, 104).mkString(", ")))
+    
+    // Converti une collection immutable en une collection mutable
+    println("2°)\t" + (List('f', 't').toBuffer))
+    
+    // Converti une collection en une liste
+    println("3°)\t" + (Map("a" -> 1, "b" -> 2).toList))
+    
+    // Converti une collection (deux dimensions) en une map
+    println("4°)\t" + (Set(1 -> true, 3 -> true).toMap))
+    
+    // Converti une collection en un set
+    println("5°)\t" + (List(2, 5, 5, 3, 2).toSet))
+    
+    // Converti la collection en une chaîne (inclut le type)
+    println("6°)\t" + (List(2, 5, 5, 3, 2).toString))
   }
   
 }
