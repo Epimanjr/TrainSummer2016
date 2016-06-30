@@ -7,6 +7,9 @@ object Collections {
   def main(args: Array[String]): Unit = {
     // Opérations arithmétiques
     arithmeticOperations()
+    
+    // Mapping operations
+    mappingOperations()
   }
   
   /**
@@ -29,6 +32,9 @@ object Collections {
    * 	16°) zip
    */
   def arithmeticOperations(): Unit = {
+    println("Operations arithmétiques : ")
+    println("---------------------------")
+    
     // Création d'une liste avec ::
     println("1°)\t" + (1 :: 2 :: 3 :: Nil))
     
@@ -76,6 +82,26 @@ object Collections {
     
     // Combinaison des deux listes
     println("16°)\t" + (List(1, 2) zip List("a", "b")))
+  }
+  
+  /**
+   * Mapping operations : 
+   * 	1°) collect
+   * 	2°) flatMap
+   * 	3°) map
+   */
+  def mappingOperations(): Unit = {
+    println("Mapping Operations : ")
+    println("---------------------")
+
+    // Récupère la liste à partir d'une fonction partielle
+    println("1°)\t" + (List(0, 1, 0) collect {case 1 => "ok"}))
+    
+    // 
+    println("2°)\t" + (List("milk,tea") flatMap (_.split(','))))
+    
+    // Transforme chaque élément à partir d'une fonction donnée
+    println("3°)\t" + (List("milk", "tea") map (_.toUpperCase)))
   }
   
 }
