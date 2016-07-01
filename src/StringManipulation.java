@@ -116,7 +116,7 @@ public class StringManipulation {
 
 		// On récupère le prénom et le nom
 		String prenom = split[0];
-		String nom = split[1];
+		String nom = split[1].toUpperCase();
 
 		// Création d'une instance de Personne
 		Personne p = new Personne(nom, prenom);
