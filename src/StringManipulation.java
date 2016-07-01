@@ -24,9 +24,18 @@ public class StringManipulation {
 		// Petit cours
 		runTraining();
 		// Exercice
-		String chainePourExercice = " Maxime BLAISE  ";
+		System.out.println("Partie EXERCICE : ");
+		System.out.println("------------------");
+		String chainePourExercice = " Maxime Blaise  ";
 		Personne personne = runExercise(chainePourExercice);
-		System.out.println(personne);
+		System.out.println("Personne générée  : " + personne);
+		// Correction de l'exercice
+		Personne correction = correctionExercice(chainePourExercice);
+		System.out.println("Personne attendue : " + correction);
+		boolean juste = correction.equals(personne);
+		String resultat = (juste) ? "Bravo, tu as réussi l'exercice ! "
+				: "Oh non, tu n'as pas réussi :'(";
+		System.out.println(resultat);
 	}
 
 	/**
@@ -43,6 +52,9 @@ public class StringManipulation {
 	 * Quelques exemples de code pour manipuler des chaînes de caractères.
 	 */
 	public static void runTraining() {
+		System.out.println("Partie COURS : ");
+		System.out.println("---------------");
+		
 		// Avant toute manipulation, il faut créer un objet StringBuilder
 		StringBuilder builder = new StringBuilder(chaineAManipuler);
 
@@ -57,12 +69,57 @@ public class StringManipulation {
 		}
 
 		// Pour supprimer les espaces inutiles
+		String chaineSansEspace = chaineAvecEspaces.trim();
 		System.out.println("'" + chaineAvecEspaces
-				+ "' sans espace, ça donne '" + chaineAvecEspaces.trim() + "'");
+				+ "' sans espace, ça donne '" + chaineSansEspace + "'");
 
 		// Couper la chaîne en deux, par exemple avec l'espace
 		String[] chaines = chaineAManipuler.split(" ");
-		System.out.println("Chaîne 1 : " + chaines[0]);
-		System.out.println("Chaîne 2 : " + chaines[1]);
+		System.out.println("La chaîne '" + chaineAManipuler
+				+ "' coupé en deux avec l'espace, ça donne : ");
+		System.out.println("\tChaîne 1 : " + chaines[0]);
+		System.out.println("\tChaîne 2 : " + chaines[1]);
+
+		// Savoir si la chaîne commence par ...
+		boolean bBegin = chaineSansEspace.startsWith("Sa");
+		System.out.println("La chaîne '" + chaineSansEspace
+				+ "' débute-t-elle par Sa ? " + bBegin);
+
+		// Savoir si la chaîne se termine par ...
+		boolean bEnd = chaineSansEspace.endsWith("lut");
+		System.out.println("La chaîne '" + chaineSansEspace
+				+ "' se finit-elle par lut ? " + bEnd);
+
+		// Transformation en majuscule
+		String MAJUSCULE = chaineSansEspace.toUpperCase();
+		System.out.println("En MAJUSCULE : " + MAJUSCULE);
+
+		// Transformation en minuscule
+		String minuscule = chaineSansEspace.toLowerCase();
+		System.out.println("En minuscule : " + minuscule);
+	}
+
+	/**
+	 * Correction de l'exercice.
+	 * 
+	 * @param chainePourExercice
+	 *            La chaîne de caractère contenant les informations de la
+	 *            personne (prénom et nom)
+	 * @return Une instance de personne
+	 */
+	public static Personne correctionExercice(String chainePourExercice) {
+		// On enlève les espaces autour de la chaîne
+		String chaineSansEspace = chainePourExercice.trim();
+
+		// On coupe la chaîne en deux, avec l'espace
+		String[] split = chaineSansEspace.split(" ");
+
+		// On récupère le prénom et le nom
+		String prenom = split[0];
+		String nom = split[1];
+
+		// Création d'une instance de Personne
+		Personne p = new Personne(nom, prenom);
+		return p;
 	}
 }
