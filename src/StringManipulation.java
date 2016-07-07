@@ -19,6 +19,7 @@ public class StringManipulation {
 	 * programme.
 	 * 
 	 * @param args
+	 *            Argument du programme (on en a pas ici)
 	 */
 	public static void main(String[] args) {
 		// Petit cours

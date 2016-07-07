@@ -1,0 +1,4 @@
+Bonjour
+C'est la fête !
+Comment vas-tu ? 
+exit
